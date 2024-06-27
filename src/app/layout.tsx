@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import { FC, PropsWithChildren } from "react";
 import { Inter as FontSans } from "next/font/google";
 
+// providers
+import { ThemeProvider } from "@/providers/theme/theme";
+
 // components
 import { Header } from "@/components/header/header";
+import { Separator } from "@/components/ui/separator";
 
 // utils
 import { cn } from "@/lib/utils";
@@ -25,14 +29,23 @@ export const metadata: Metadata = {
 const RootLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <html lang="en">
+      <head />
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}
       >
-        <Header />
-        <main className="container mx-auto">{children}</main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <Separator className="my-4" />
+          <main className="container mx-auto">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
