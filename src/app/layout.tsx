@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/providers/theme/theme";
 // components
 import { Header } from "@/components/header/header";
 import { Separator } from "@/components/ui/separator";
+import { Toaster } from "@/components/ui/toaster";
 
 // utils
 import { cn } from "@/lib/utils";
@@ -45,6 +46,7 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) => {
           <Header />
           <Separator className="my-4" />
           <main className="container mx-auto">{children}</main>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
