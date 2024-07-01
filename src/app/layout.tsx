@@ -3,12 +3,12 @@ import { FC, PropsWithChildren } from "react";
 import { Inter as FontSans } from "next/font/google";
 
 // providers
-import { ThemeProvider } from "@/providers/theme/theme";
+import { ThemeProvider } from "@/providers/theme";
 
 // components
 import { Header } from "@/components/header/header";
 import { Separator } from "@/components/ui/separator";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "@/components/ui/sonner";
 
 // utils
 import { cn } from "@/lib/utils";
@@ -46,7 +46,7 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) => {
           <Header />
           <Separator className="my-4" />
           <main className="container mx-auto">{children}</main>
-          <Toaster />
+          <Toaster duration={2000}/>
         </ThemeProvider>
       </body>
     </html>

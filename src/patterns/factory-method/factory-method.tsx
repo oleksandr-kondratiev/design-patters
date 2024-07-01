@@ -1,6 +1,7 @@
 "use client";
 
 import { z } from "zod";
+import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -15,27 +16,26 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast";
 
 interface Shape {
-  draw(): string;
+  draw(): void;
 }
 
 export class Circle implements Shape {
-  draw(): string {
-    return "Drawing a Circle";
+  draw(): void {
+    toast("Drawing a Circle");
   }
 }
 
 export class Square implements Shape {
-  draw(): string {
-    return "Drawing a Square";
+  draw(): void {
+    toast("Drawing a Square");
   }
 }
 
 export class Rectangle implements Shape {
-  draw(): string {
-    return "Drawing a Rectangle";
+  draw(): void {
+    toast("Drawing a Rectangle");
   }
 }
 
@@ -63,8 +63,6 @@ const formSchema = z.object({
 });
 
 export const FactoryMethod = () => {
-  const { toast } = useToast();
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
@@ -73,13 +71,7 @@ export const FactoryMethod = () => {
     const factory = new ShapeFactory();
     const shape = factory.getShape(values.shape);
 
-    if (shape) {
-      const description = shape.draw();
-
-      toast({ description });
-    } else {
-      toast({ description: "Invalid shape" });
-    }
+    shape?.draw();
   };
 
   return (
