@@ -8,7 +8,7 @@ const AbstractFactoryPage = () => {
   return (
     <PatternWrapper
       title="Abstract factory pattern"
-      subtitle="The Abstract Factory pattern is a creational design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes. It is used when a system needs to be independent of how its objects are created, composed, and represented."
+      subtitle="Abstract Factory is a creational design pattern that lets you produce families of related objects without specifying their concrete classes."
       task={[
         "Define an abstract UIElement interface (or abstract class) that declares methods like render().",
         "Define concrete classes for each type of UI element (Button, Checkbox, Textbox) for each platform (Windows, MacOS, Linux). These classes should implement the UIElement interface and provide their own implementations of the render() method.",

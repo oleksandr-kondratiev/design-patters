@@ -8,7 +8,7 @@ const FactoryMethodPage = () => {
   return (
     <PatternWrapper
       title="Factory method pattern"
-      subtitle="In object oriented programming, the factory method pattern is a design pattern that uses factory methods to deal with the problem of creating objects without having to specify their exact class. Rather than by calling a constructor, this is done by calling a factory method to create an object."
+      subtitle="Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created."
       task={[
         "Define an abstract Shape class or interface that declares a method draw().",
         "Create concrete classes for each shape type (Circle, Square, Rectangle) that implement the Shape interface or inherit from the Shape class.",

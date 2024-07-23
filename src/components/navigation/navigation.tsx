@@ -26,7 +26,7 @@ export const Navigation = () => {
             <Link href={value} legacyBehavior passHref>
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle({
-                  className: pathname.includes(value) && "bg-accent",
+                  className: pathname.includes(value) && "bg-secondary",
                 })}
               >
                 {label}

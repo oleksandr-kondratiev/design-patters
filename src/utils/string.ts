@@ -1,5 +1,6 @@
-export const isNotEmptyString = (str?: unknown) =>
-  typeof str === "string" && str?.trim().length > 0;
+export const isNotEmptyString = (str?: unknown) => {
+  return typeof str === "string" && str?.trim().length > 0;
+};
 
 export const toUpperCaseFirstLetter = (str?: string): string => {
   if (!str) {

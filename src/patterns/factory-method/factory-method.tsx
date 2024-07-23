@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+// components
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -17,30 +18,30 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-interface Shape {
-  draw(): void;
+abstract class Shape {
+  public abstract draw(): void;
 }
 
-export class Circle implements Shape {
-  draw(): void {
+class Circle extends Shape {
+  public draw() {
     toast("Drawing a Circle");
   }
 }
 
-export class Square implements Shape {
-  draw(): void {
+class Square extends Shape {
+  public draw() {
     toast("Drawing a Square");
   }
 }
 
-export class Rectangle implements Shape {
-  draw(): void {
+class Rectangle extends Shape {
+  public draw() {
     toast("Drawing a Rectangle");
   }
 }
 
-export class ShapeFactory {
-  getShape(shapeType: string): Shape | null {
+class ShapeFactory {
+  public getShape(shapeType: string): Shape {
     switch (shapeType) {
       case "Circle":
         return new Circle();
@@ -49,7 +50,7 @@ export class ShapeFactory {
       case "Rectangle":
         return new Rectangle();
       default:
-        return null;
+        throw new Error("Invalid shape type");
     }
   }
 }
@@ -71,7 +72,7 @@ export const FactoryMethod = () => {
     const factory = new ShapeFactory();
     const shape = factory.getShape(values.shape);
 
-    shape?.draw();
+    shape.draw();
   };
 
   return (
