@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Design Patterns in TypeScript
+
+Welcome to the Design Patterns repository, where we explore the implementation of various design patterns in TypeScript. This project aims to provide clear, concise, and practical examples of design patterns to help developers understand and apply them in real-world applications.
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Software Requirements](#software-requirements)
+- [Getting Started](#getting-started)
+- [Folder Structure](#folder-structure)
+- [Patterns Covered](#patterns-covered)
+
+## Introduction
+
+Design patterns are typical solutions to common problems in software design. Each pattern is like a blueprint that you can customize to solve a particular design problem in your code. They define a language that helps you and your team communicate more efficiently.
+
+This repository focuses on implementing these patterns in TypeScript, providing both the theory behind each pattern and practical examples.
+
+## Software Requirements
+
+- Node.js (v22.0.0 or higher)
+- npm (v10.0.0 or higher)
+
+These versions are recommended for compatibility with the examples provided. You can download them from [Node.js official website](https://nodejs.org/).
 
 ## Getting Started
 
-First, run the development server:
+To get started with this project, you need to have Node.js and npm installed on your machine.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Clone the repository:
+
+```sh
+git clone git@github.com:oleksandr-kondratiev/design-patters.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the project directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+cd design-patterns
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Install dependencies:
 
-## Learn More
+```sh
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Explore the patterns implemented in the src/patterns directory. Each pattern has its own folder containing a TypeScript implementation and an example usage.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Folder Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The project is organized as follows:
 
-## Deploy on Vercel
+- `/src`: This folder contains the TypeScript source files for each design pattern.
+  - `/app`: Contains the main application logic and entry points.
+  - `/components`: Houses reusable UI components.
+    - `/ui`: Dedicated to UI components that are purely presentational.
+  - `/constants`: Stores constant values used throughout the application.
+  - `/lib/utils`: Contains utility functions and helpers used across the application.
+  - `/providers`: Includes context providers for state management and data passing.
+  - `/utils`: General utilities and helper functions.
+  - `/patterns`: Inside this folder, each design pattern has its own subfolder.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Patterns Covered
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This repository covers the following design patterns:
+
+#### Creational Patterns
+- [Factory Method](https://refactoring.guru/design-patterns/factory-method)
+- [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
+- [Builder](https://refactoring.guru/design-patterns/builder)
+- [Prototype](https://refactoring.guru/design-patterns/prototype)
+
+#### Behavioral Patterns
+- [Iterator](https://refactoring.guru/design-patterns/iterator)
+- [State](https://refactoring.guru/design-patterns/state)
