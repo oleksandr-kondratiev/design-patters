@@ -33,7 +33,7 @@ abstract class UIElement {
 
 class WindowsButton extends UIElement {
   render() {
-    toast("Render Windows button", {
+    toast.success("Render Windows button", {
       description: `Rendered at ${formattedDate}`,
     });
   }
@@ -41,7 +41,7 @@ class WindowsButton extends UIElement {
 
 class WindowsCheckbox extends UIElement {
   render() {
-    toast("Render Windows checkbox", {
+    toast.success("Render Windows checkbox", {
       description: `Rendered at ${formattedDate}`,
     });
   }
@@ -49,7 +49,7 @@ class WindowsCheckbox extends UIElement {
 
 class WindowsTextbox extends UIElement {
   render() {
-    toast("Render Windows textbox", {
+    toast.success("Render Windows textbox", {
       description: `Rendered at ${formattedDate}`,
     });
   }
@@ -57,7 +57,7 @@ class WindowsTextbox extends UIElement {
 
 class LinuxButton extends UIElement {
   render() {
-    toast("Render Linux button", {
+    toast.success("Render Linux button", {
       description: `Rendered at ${formattedDate}`,
     });
   }
@@ -65,7 +65,7 @@ class LinuxButton extends UIElement {
 
 class LinuxCheckbox extends UIElement {
   render() {
-    toast("Render Linux checkbox", {
+    toast.success("Render Linux checkbox", {
       description: `Rendered at ${formattedDate}`,
     });
   }
@@ -73,7 +73,7 @@ class LinuxCheckbox extends UIElement {
 
 class LinuxTextbox extends UIElement {
   render() {
-    toast("Render Linux textbox", {
+    toast.success("Render Linux textbox", {
       description: `Rendered at ${formattedDate}`,
     });
   }
@@ -81,7 +81,7 @@ class LinuxTextbox extends UIElement {
 
 class MacosButton extends UIElement {
   render() {
-    toast("Render Macos button", {
+    toast.success("Render Macos button", {
       description: `Rendered at ${formattedDate}`,
     });
   }
@@ -89,7 +89,7 @@ class MacosButton extends UIElement {
 
 class MacosCheckbox extends UIElement {
   render() {
-    toast("Render Macos checkbox", {
+    toast.success("Render Macos checkbox", {
       description: `Rendered at ${formattedDate}`,
     });
   }
@@ -97,7 +97,7 @@ class MacosCheckbox extends UIElement {
 
 class MacosTextbox extends UIElement {
   render() {
-    toast("Render Macos textbox", {
+    toast.success("Render Macos textbox", {
       description: `Rendered at ${formattedDate}`,
     });
   }

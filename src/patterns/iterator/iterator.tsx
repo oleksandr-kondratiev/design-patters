@@ -58,16 +58,8 @@ class Iterator<T> {
     return this.index < this.collection.length;
   }
 
-  hasPrevious() {
-    return this.index > 0;
-  }
-
   next() {
     return this.collection[this.index++];
-  }
-
-  previous() {
-    return this.collection[this.index--];
   }
 }
 
@@ -84,7 +76,7 @@ class BookIterator {
     while (this.iterator.hasNext()) {
       const book = this.iterator.next();
 
-      toast(`${book.title} (Author: ${book.author})`, {
+      toast.info(`${book.title} (Author: ${book.author})`, {
         description: `Sales: ${formatNumberForUi(book.sales, 1)}`,
       });
     }
