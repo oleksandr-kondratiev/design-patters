@@ -22,7 +22,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Typescript - Design Patterns",
+  title: "Kondratiev Oleksandr - Design Patterns",
   description:
     "This application provides examples of various design patterns implemented in TypeScript.",
 };

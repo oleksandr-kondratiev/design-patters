@@ -24,19 +24,19 @@ abstract class Shape {
 
 class Circle extends Shape {
   public draw() {
-    toast("Drawing a Circle");
+    toast.success("Drawing a Circle");
   }
 }
 
 class Square extends Shape {
   public draw() {
-    toast("Drawing a Square");
+    toast.success("Drawing a Square");
   }
 }
 
 class Rectangle extends Shape {
   public draw() {
-    toast("Drawing a Rectangle");
+    toast.success("Drawing a Rectangle");
   }
 }
 
