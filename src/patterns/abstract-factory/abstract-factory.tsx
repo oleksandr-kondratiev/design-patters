@@ -24,131 +24,147 @@ import {
 } from "@/components/ui/select";
 
 // utils
-import { getDateNow } from "@/utils/dates";
+import { formattedDate } from "@/utils/dates";
+import { toUpperCaseFirstLetter } from "@/utils/string";
 
-interface UIElement {
-  render(): void;
+abstract class UIElement {
+  abstract render(): void;
 }
 
-class WindowsButton implements UIElement {
-  render(): void {
-    toast("Rendering a Windows Button", {
-      description: getDateNow(),
+class WindowsButton extends UIElement {
+  render() {
+    toast("Render Windows button", {
+      description: `Rendered at ${formattedDate}`,
     });
   }
 }
 
-class WindowsCheckbox implements UIElement {
-  render(): void {
-    toast("Rendering a Windows Checkbox", {
-      description: getDateNow(),
+class WindowsCheckbox extends UIElement {
+  render() {
+    toast("Render Windows checkbox", {
+      description: `Rendered at ${formattedDate}`,
     });
   }
 }
 
-class WindowsTextbox implements UIElement {
-  render(): void {
-    toast("Rendering a Windows Textbox", {
-      description: getDateNow(),
+class WindowsTextbox extends UIElement {
+  render() {
+    toast("Render Windows textbox", {
+      description: `Rendered at ${formattedDate}`,
     });
   }
 }
 
-class MacOSButton implements UIElement {
-  render(): void {
-    toast("Rendering a MacOS Button", {
-      description: getDateNow(),
+class LinuxButton extends UIElement {
+  render() {
+    toast("Render Linux button", {
+      description: `Rendered at ${formattedDate}`,
     });
   }
 }
 
-class MacOSCheckbox implements UIElement {
-  render(): void {
-    toast("Rendering a MacOS Checkbox", {
-      description: getDateNow(),
+class LinuxCheckbox extends UIElement {
+  render() {
+    toast("Render Linux checkbox", {
+      description: `Rendered at ${formattedDate}`,
     });
   }
 }
 
-class MacOSTextbox implements UIElement {
-  render(): void {
-    toast("Rendering a MacOS Textbox", {
-      description: getDateNow(),
+class LinuxTextbox extends UIElement {
+  render() {
+    toast("Render Linux textbox", {
+      description: `Rendered at ${formattedDate}`,
     });
   }
 }
 
-class LinuxButton implements UIElement {
-  render(): void {
-    toast("Rendering a Linux Button", {
-      description: getDateNow(),
+class MacosButton extends UIElement {
+  render() {
+    toast("Render Macos button", {
+      description: `Rendered at ${formattedDate}`,
     });
   }
 }
 
-class LinuxCheckbox implements UIElement {
-  render(): void {
-    toast("Rendering a Linux Checkbox", {
-      description: getDateNow(),
+class MacosCheckbox extends UIElement {
+  render() {
+    toast("Render Macos checkbox", {
+      description: `Rendered at ${formattedDate}`,
     });
   }
 }
 
-class LinuxTextbox implements UIElement {
-  render(): void {
-    toast("Rendering a Linux Textbox", {
-      description: getDateNow(),
+class MacosTextbox extends UIElement {
+  render() {
+    toast("Render Macos textbox", {
+      description: `Rendered at ${formattedDate}`,
     });
   }
 }
 
-interface UIFactory {
-  createButton(): UIElement;
-  createCheckbox(): UIElement;
-  createTextbox(): UIElement;
+abstract class UIFactory {
+  abstract createButton(): UIElement;
+  abstract createCheckbox(): UIElement;
+  abstract createTextbox(): UIElement;
 }
 
-class WindowsFactory implements UIFactory {
-  createButton(): UIElement {
+class WindowsFactory extends UIFactory {
+  createButton() {
     return new WindowsButton();
   }
-  createCheckbox(): UIElement {
+
+  createCheckbox() {
     return new WindowsCheckbox();
   }
-  createTextbox(): UIElement {
+
+  createTextbox() {
     return new WindowsTextbox();
   }
 }
 
-class MacOSFactory implements UIFactory {
-  createButton(): UIElement {
-    return new MacOSButton();
-  }
-  createCheckbox(): UIElement {
-    return new MacOSCheckbox();
-  }
-  createTextbox(): UIElement {
-    return new MacOSTextbox();
-  }
-}
-
-class LinuxFactory implements UIFactory {
-  createButton(): UIElement {
+class LinuxFactory extends UIFactory {
+  createButton() {
     return new LinuxButton();
   }
-  createCheckbox(): UIElement {
+
+  createCheckbox() {
     return new LinuxCheckbox();
   }
-  createTextbox(): UIElement {
+
+  createTextbox() {
     return new LinuxTextbox();
   }
 }
 
-const FACTORIES: Record<string, UIFactory> = {
-  windows: new WindowsFactory(),
-  macos: new MacOSFactory(),
-  linux: new LinuxFactory(),
-};
+class MacosFactory extends UIFactory {
+  createButton() {
+    return new MacosButton();
+  }
+
+  createCheckbox() {
+    return new MacosCheckbox();
+  }
+
+  createTextbox() {
+    return new MacosTextbox();
+  }
+}
+
+class AbstractFactoryConstructor {
+  public getFactory(system: string): UIFactory {
+    switch (system) {
+      case "windows":
+        return new WindowsFactory();
+      case "linux":
+        return new LinuxFactory();
+      case "macos":
+        return new MacosFactory();
+      default:
+        throw new Error("Invalid system type");
+    }
+  }
+}
 
 const formSchema = z.object({
   platform: z.string({ required_error: "Platform is required" }),
@@ -160,7 +176,8 @@ export const AbstractFactory = () => {
   });
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-    const factory = FACTORIES[values.platform];
+    const abstractFactory = new AbstractFactoryConstructor();
+    const factory = abstractFactory.getFactory(values.platform);
 
     if (factory) {
       const components = [
@@ -189,9 +206,11 @@ export const AbstractFactory = () => {
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="windows">Windows</SelectItem>
-                  <SelectItem value="macos">MacOS</SelectItem>
-                  <SelectItem value="linux">Linux</SelectItem>
+                  {["windows", "macos", "linux"].map((platform) => (
+                    <SelectItem key={platform} value={platform}>
+                      {toUpperCaseFirstLetter(platform)}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
               <FormMessage />
