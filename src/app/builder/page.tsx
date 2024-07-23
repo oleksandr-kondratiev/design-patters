@@ -17,7 +17,7 @@ const BuilderPage = () => {
         "In your main application, use the MealDirector and the concrete builder classes to create different types of meals.",
       ]}
       realization={<Builder />}
-      link="https://github.com/oleksandr-kondratiev/design-patters"
+      link="builder/builder.tsx"
     />
   );
 };

@@ -17,7 +17,7 @@ const AbstractFactoryPage = () => {
         "In your main application, use the appropriate factory to create and render the UI elements based on the user's platform.",
       ]}
       realization={<AbstractFactory />}
-      link="https://github.com/oleksandr-kondratiev/design-patters"
+      link="abstract-factory/abstract-factory.tsx"
     />
   );
 };

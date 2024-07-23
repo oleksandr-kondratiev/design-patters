@@ -17,7 +17,7 @@ const FactoryMethodPage = () => {
         "In your main application, use the ShapeFactory to create and draw different shapes based on user input.",
       ]}
       realization={<FactoryMethod />}
-      link="https://github.com/oleksandr-kondratiev/design-patters"
+      link="factory-method/factory-method.tsx"
     />
   );
 };

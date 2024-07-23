@@ -16,7 +16,7 @@ const IteratorPage = () => {
         "In your library management system, create a BookCollection object and use its iterator to access the books.",
       ]}
       realization={<IteratorPattern />}
-      link="https://github.com/oleksandr-kondratiev/design-patters"
+      link="iterator/iterator.tsx"
     />
   );
 };

@@ -16,7 +16,7 @@ const StatePage = () => {
         "In your digital media player, create a MediaPlayer object and State objects for each state. The MediaPlayer should change its state according to the user's actions.",
       ]}
       realization={<State />}
-      link="https://github.com/oleksandr-kondratiev/design-patters"
+      link="state/state.tsx"
     />
   );
 };
