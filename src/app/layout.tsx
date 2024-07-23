@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FC, PropsWithChildren } from "react";
 import { Inter as FontSans } from "next/font/google";
+import Head from "next/head";
 
 // providers
 import { ThemeProvider } from "@/providers/theme";
@@ -30,7 +31,9 @@ export const metadata: Metadata = {
 const RootLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <html lang="en">
-      <head />
+      <Head>
+        <link rel="icon" href="../../public/favicon.ico" />
+      </Head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
@@ -46,7 +49,7 @@ const RootLayout: FC<PropsWithChildren> = ({ children }) => {
           <Header />
           <Separator className="my-4" />
           <main className="container mx-auto">{children}</main>
-          <Toaster duration={2000}/>
+          <Toaster duration={2000} />
         </ThemeProvider>
       </body>
     </html>
