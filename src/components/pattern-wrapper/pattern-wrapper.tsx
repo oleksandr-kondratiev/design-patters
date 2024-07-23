@@ -59,7 +59,9 @@ export const PatternWrapper: FC<IPatternWrapperProps> = ({
                 The realization of the task using the pattern.
               </CardDescription>
             </div>
-            <Link href={link}>
+            <Link
+              href={`https://github.com/oleksandr-kondratiev/design-patters/blob/main/src/patterns/${link}`}
+            >
               <Button variant="outline" size="icon">
                 <Github className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100" />
                 <span className="sr-only">Github</span>

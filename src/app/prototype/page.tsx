@@ -16,7 +16,7 @@ const PrototypePage = () => {
         "Whenever you need a new NPC of a particular type in the game, call the clone() method on the instance of that type instead of creating a new instance.",
       ]}
       realization={<Prototype />}
-      link="https://github.com/oleksandr-kondratiev/design-patters"
+      link="prototype/prototype.tsx"
     />
   );
 };
