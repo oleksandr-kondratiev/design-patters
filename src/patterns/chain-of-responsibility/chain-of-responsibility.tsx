@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { toast } from "sonner";
 
 // components
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 interface IssueHandler {
@@ -111,26 +110,21 @@ export const ChainOfResponsibility = () => {
 
   return (
     <div className="w-full space-y-4">
-      <Card className="p-4">
-        <h3 className="mb-4 text-sm font-medium">IT Support System</h3>
-        <div className="grid grid-cols-2 gap-4">
-          {issues.map((issue, index) => (
-            <Button
-              key={index}
-              className="w-full"
-              onClick={() => supportChain.handle(issue.name, issue.priority)}
-              variant={
-                index === issues.length - 1 ? "destructive" : "secondary"
-              }
-            >
-              {issue.name}
-              <span className="ml-2 text-xs opacity-75">
-                (Priority: {issue.priority})
-              </span>
-            </Button>
-          ))}
-        </div>
-      </Card>
+      <div className="grid grid-cols-2 gap-4">
+        {issues.map((issue, index) => (
+          <Button
+            key={index}
+            className="w-full"
+            onClick={() => supportChain.handle(issue.name, issue.priority)}
+            variant={index === issues.length - 1 ? "destructive" : "secondary"}
+          >
+            {issue.name}
+            <span className="ml-2 text-xs opacity-75">
+              (Priority: {issue.priority})
+            </span>
+          </Button>
+        ))}
+      </div>
     </div>
   );
 };
