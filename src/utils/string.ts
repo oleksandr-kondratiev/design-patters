@@ -22,3 +22,11 @@ export const fromSnakeCaseToNormal = (str?: string): string => {
 
   return toUpperCaseFirstLetter(str?.replace(/_/gi, " ") || "");
 };
+
+export const fromConstantToLabel = (constant?: string): string => {
+  if (!isNotEmptyString(constant)) return "";
+
+  return toUpperCaseFirstLetter(
+    fromSnakeCaseToNormal(constant?.toLocaleLowerCase() || "")
+  );
+};

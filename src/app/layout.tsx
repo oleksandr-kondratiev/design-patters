@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { FC, PropsWithChildren } from "react";
 import { Inter as FontSans } from "next/font/google";
-import Head from "next/head";
 
 // providers
 import { ThemeProvider } from "@/providers/theme";
@@ -23,17 +22,15 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Kondratiev Oleksandr - Design Patterns",
-  description:
-    "This application provides examples of various design patterns implemented in TypeScript.",
+  title: "Design Patterns",
+  description: "This application provides examples of various design patterns.",
+  icons: { icon: "/favicon.ico" }
 };
 
 const RootLayout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <html lang="en">
-      <Head>
-        <link rel="icon" href="../../public/favicon.ico" />
-      </Head>
+    <html lang="en" suppressHydrationWarning>
+      <head />
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",

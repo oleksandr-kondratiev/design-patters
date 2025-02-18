@@ -3,11 +3,14 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+// constants
+import { ROUTES } from "@/constants/routes";
+
 const HomePage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/factory-method");
+    router.push(ROUTES.SINGLETON);
   }, [router]);
 
   return (
